@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // main page
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -13,8 +13,8 @@ import { LandingPage } from './components/pages/Landing';
 
 import { FooterContent, SubFooter } from './components/Layout/Footer';
 import { HeaderContent } from './components/Layout/Header';
-
-// import { TablePage } from './components/pages/Table';
+// import { TablePage } from './components/pages/'
+// import { TablePage } from './components/pages/Table'; no Tables found
 
 import { Layout } from 'antd';
 import GraphsContainer from './components/pages/DataVisualizations/GraphsContainer';
