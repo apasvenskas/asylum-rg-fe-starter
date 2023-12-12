@@ -34,31 +34,44 @@ function RenderLandingPage(props) {
       {/* Graphs Section: Add code here for the graphs section for your first ticket */}
       {/* <div className="graphs-section"> */}
       <div className="graphs-section">
-        <img
-          src={GrantRatesByOfficeImg}
-          className="officeGraph"
-          alt="officeGraph"
-        ></img>
-        <img
-          src={GrantRatesByNationalityImg}
-          className="nationalityGraph"
-          alt="nationalGraph"
-        ></img>
-        <img
-          src={GrantRatesOverTimeImg}
-          className="timeGraph"
-          alt="timeGraph"
-        ></img>
+        <div className="img1">
+          <img
+            src={GrantRatesByOfficeImg}
+            className="officeGraph"
+            alt="officeGraph"
+          ></img>
+          <p>Search Grant Rates By Office</p>
+        </div>
+        <div className="img2">
+          <img
+            src={GrantRatesByNationalityImg}
+            className="nationalityGraph"
+            alt="nationalGraph"
+          ></img>
+          <p>Search Grant Rates By Nationality</p>
+        </div>
+        <div className="img3">
+          <img
+            src={GrantRatesOverTimeImg}
+            className="timeGraph"
+            alt="timeGraph"
+          ></img>
+          <p>Search Grant Rates Over Time</p>
+        </div>
       </div>
       <div className="view-more-data-btn-container">
         <Button
           type="default"
           style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
-          onClick={() => history.push('/graphs')}
+          onClick={() =>
+            (window.location.href = 'https://asylum-rg-fe.vercel.app/graphs')
+          }
         >
           View the Data
         </Button>
-        <Button>Download the Data</Button>
+        <Button style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}>
+          Download the Data
+        </Button>
       </div>
 
       <div className="middle-section">
@@ -77,9 +90,53 @@ function RenderLandingPage(props) {
           </h3>
         </div>
       </div>
-      <div>
-        {/* Bottom Section: Add code here for the graphs section for your first ticket */}
-        {/* <div className="bottom-section">*/}
+      {/* Bottom Section: Add code here for the graphs section for your first ticket */}
+      {/* <div className="bottom-section">*/}
+      <div className="bottom-section">
+        <h1>Systematic Disperity Insights</h1>
+        <div className="bottom-section-content">
+          <div className="first-data-point-container">
+            <h2>36%</h2>
+            <h3>
+              By the end of the Trump administration, the average asylum office
+              grant rate had fallen 36 percent from an average of 44 percent in
+              fiscal year 2016 to 28 percent in fiscal year 2020.
+            </h3>
+          </div>
+          <div className="second-data-point-container">
+            <h2>5%</h2>
+            <h3>
+              The New York asylum office grant rate dropped to 5 percent in
+              fiscal year 2020.
+            </h3>
+          </div>
+          <div className="third-data-point-container">
+            <h2>6x Lower</h2>
+            <h3>
+              Between fiscal year 2017 and 2020, the New York asylum office’s
+              average grant rate was six times lower than the San Francisco
+              asylum office.
+            </h3>
+          </div>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Button
+            className="readMore"
+            style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+            onClick={() =>
+              (window.location.href =
+                'https://humanrightsfirst.org/library/uscis-records-reveal-systemic-disparities-in-asylum-decisions/')
+            }
+          >
+            Read More
+          </Button>
+        </div>
         <p onClick={() => scrollToTop()} className="back-to-top">
           Back To Top ^
         </p>
