@@ -44,7 +44,7 @@ function RenderLandingPage(props) {
         </div>
         <div className="img2">
           <img
-            src={GrantRatesByNationalityImg}
+            src={GrantRatesByNationalityImg} //
             className="nationalityGraph"
             alt="nationalGraph"
           ></img>

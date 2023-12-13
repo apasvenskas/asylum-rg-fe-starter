@@ -101,6 +101,27 @@
 // .bottom-section {
 //      ADD THIS BACK IN WHEN YOU HAVE A BOTTOM SECTION
 // }
+// .bottom-section{
+//     align-items: center;
+//     margin-top: 5%;
+// }
+
+// .bottom-section h1 {
+//     text-align: center;
+//     font-size:xx-large;
+//     font-family: serif;
+//   }
+
+// .bottom-section-content{
+//     display: flex;
+//     flex-direction:row;
+//     justify-content:space-evenly;
+//     align-items: center;
+//     margin-top: 5%;
+//     margin-left: 5%;
+//     margin-right: 5%;
+// }
+
 .bottom-section{
     align-items: center;
     margin-top: 5%;
@@ -122,6 +143,14 @@
     margin-right: 5%;
 }
 
+/* Add this to make the child divs have equal width and height */
+.first-data-point-container, .second-data-point-container, .third-data-point-container {
+    flex: 1;
+    height: 200px;
+    padding: 3%;
+}
+
+
 .first-data-point-container{
     text-align: center;
     font-family: serif;
@@ -141,6 +170,10 @@
     text-align: center;
     font-size:xx-large;
     font-family: serif;
+  }
+
+  .readMore{
+    margin-top: 5%;
   }
 
 .back-to-top {
