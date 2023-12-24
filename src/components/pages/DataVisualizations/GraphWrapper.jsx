@@ -12,6 +12,7 @@ import axios from 'axios';
 import { resetVisualizationQuery } from '../../../state/actionCreators';
 import { colors } from '../../../styles/data_vis_colors';
 import ScrollToTopOnMount from '../../../utils/scrollToTopOnMount';
+import LoginButton from './LoginButton';
 
 const { background_color } = colors;
 
@@ -50,46 +51,16 @@ function GraphWrapper(props) {
     }
   }
   function updateStateWithNewData(years, view, office, stateSettingCallback) {
-    /*
-          _                                                                             _
-        |                                                                                 |
-        |   Example request for once the `/summary` endpoint is up and running:           |
-        |                                                                                 |
-        |     `${url}/summary?to=2022&from=2015&office=ZLA`                               |
-        |                                                                                 |
-        |     so in axios we will say:                                                    |
-        |                                                                                 |     
-        |       axios.get(`${url}/summary`, {                                             |
-        |         params: {                                                               |
-        |           from: <year_start>,                                                   |
-        |           to: <year_end>,                                                       |
-        |           office: <office>,       [ <-- this one is optional! when    ]         |
-        |         },                        [ querying by `all offices` there's ]         |
-        |       })                          [ no `office` param in the query    ]         |
-        |                                                                                 |
-          _                                                                             _
-                                   -- Mack 
-    */
-
-    // axios.get('https://hrf-asylum-be-b.herokuapp.com/summary', {
-    //   params: {
-    //     from: 2015,
-    //     to: 2022,
-    //     office: 'ZLA'
-    //   }
-    // });
-
     if (office === 'all' || !office) {
       axios
         .get('https://hrf-asylum-be-b.herokuapp.com/fiscalSummary', {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
           params: {
             from: years[0],
             to: years[1],
           },
         })
         .then(result => {
-          stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+          stateSettingCallback(view, office, result.data);
         })
         .catch(err => {
           console.error(err);
@@ -97,7 +68,6 @@ function GraphWrapper(props) {
     } else {
       axios
         .get('https://hrf-asylum-be-b.herokuapp.com/citizenshipSummary', {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
           params: {
             from: years[0],
             to: years[1],
@@ -105,7 +75,7 @@ function GraphWrapper(props) {
           },
         })
         .then(result => {
-          stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+          stateSettingCallback(view, office, result.data);
         })
         .catch(err => {
           console.error(err);
@@ -146,6 +116,7 @@ function GraphWrapper(props) {
           updateStateWithNewData={updateStateWithNewData}
         />
       </div>
+      <LoginButton />
     </div>
   );
 }

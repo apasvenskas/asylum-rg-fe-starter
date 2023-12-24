@@ -13,8 +13,6 @@ import { LandingPage } from './components/pages/Landing';
 
 import { FooterContent, SubFooter } from './components/Layout/Footer';
 import { HeaderContent } from './components/Layout/Header';
-// import { TablePage } from './components/pages/'
-// import { TablePage } from './components/pages/Table'; no Tables found
 
 import { Layout } from 'antd';
 import GraphsContainer from './components/pages/DataVisualizations/GraphsContainer';
@@ -22,6 +20,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
 import { colors } from './styles/data_vis_colors';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 const { primary_accent_color } = colors;
 
@@ -30,7 +29,13 @@ ReactDOM.render(
   <Router>
     <Provider store={store}>
       <React.StrictMode>
-        <App />
+        <Auth0Provider
+          domain="dev-ea8nheizp7ogrvn3.us.auth0.com"
+          clientId="ABJ3VvJ69m0wRxLfwEItI2XrxE5PhZ6e"
+          redirectUri={window.location.origin}
+        >
+          <App />
+        </Auth0Provider>
       </React.StrictMode>
     </Provider>
   </Router>,
