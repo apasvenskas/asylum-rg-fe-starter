@@ -1,13 +1,26 @@
+// Headers.jsx
 import React from 'react';
 import { Image } from 'antd';
 import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
-import LoginButton from '../pages/DataVisualizations/LoginButton';
+// Import the components as named exports
+import { AuthButton } from '../pages/DataVisualizations/LoginButton';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const { primary_accent_color } = colors;
 
 function HeaderContent() {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const handleLogin = () => {
+    // Perform login logic using Auth0
+    loginWithRedirect({ screen_hint: 'login' });
+  };
+  const handleLogout = () => {
+    // Perform logout logic using Auth0
+    logout({ returnTo: window.location.origin });
+  };
+
   return (
     <div
       style={{
@@ -61,10 +74,21 @@ function HeaderContent() {
         >
           Graphs
         </Link>
-        <LoginButton style={{ flex: 1, margin: '10px' }} />
+        <AuthButton
+          style={{
+            backgroundColor: 'rgb(64, 76, 74)',
+            color: 'rgb(226, 240, 247)',
+            padding: '10px 20px',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+          }}
+          isAuthenticated={isAuthenticated}
+          onLogin={handleLogin}
+          onLogout={handleLogout}
+        />
       </div>
     </div>
   );
 }
-
-export { HeaderContent };
+export default HeaderContent;

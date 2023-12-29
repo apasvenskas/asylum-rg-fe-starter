@@ -1,18 +1,14 @@
 import React from 'react'; // main page
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Route,
-  // useHistory,
-  Switch,
-} from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LandingPage } from './components/pages/Landing';
 
 import { FooterContent, SubFooter } from './components/Layout/Footer';
-import { HeaderContent } from './components/Layout/Header';
+import HeaderContent from './components/Layout/Header';
 
 import { Layout } from 'antd';
 import GraphsContainer from './components/pages/DataVisualizations/GraphsContainer';
@@ -23,16 +19,20 @@ import { colors } from './styles/data_vis_colors';
 import { Auth0Provider } from '@auth0/auth0-react';
 
 const { primary_accent_color } = colors;
+const history = createBrowserHistory();
 
 const store = configureStore({ reducer: reducer });
 ReactDOM.render(
-  <Router>
+  <Router history={history}>
     <Provider store={store}>
       <React.StrictMode>
         <Auth0Provider
           domain="dev-ea8nheizp7ogrvn3.us.auth0.com"
           clientId="m3dTrsOleAigzYafV1wbIXQLdSzcLDw9"
-          redirectUri={window.location.origin}
+          authorizationParams={{
+            redirect_uri: window.location.origin, // new parameter name
+            // other parameters
+          }}
         >
           <App />
         </Auth0Provider>
