@@ -12,7 +12,6 @@ import axios from 'axios';
 import { resetVisualizationQuery } from '../../../state/actionCreators';
 import { colors } from '../../../styles/data_vis_colors';
 import ScrollToTopOnMount from '../../../utils/scrollToTopOnMount';
-import LoginButton from './LoginButton';
 
 const { background_color } = colors;
 
@@ -116,7 +115,6 @@ function GraphWrapper(props) {
           updateStateWithNewData={updateStateWithNewData}
         />
       </div>
-      <LoginButton />
     </div>
   );
 }
