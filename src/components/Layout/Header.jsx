@@ -6,6 +6,7 @@ import { colors } from '../../styles/data_vis_colors';
 import { useAuth0 } from '@auth0/auth0-react';
 import LoginButton from '../pages/DataVisualizations/LoginButton';
 import LogoutButton from '../pages/DataVisualizations/LogoutButton';
+import Profile from '../pages/DataVisualizations/UserTable';
 
 const { primary_accent_color } = colors;
 
@@ -72,6 +73,7 @@ function HeaderContent() {
           {isAuthenticated && (
             <LogoutButton style={{ flex: 1, margin: '10px' }} />
           )}
+          {isAuthenticated && <Profile style={{ flex: 1, margin: '10px' }} />}
         </>
       </div>
     </div>

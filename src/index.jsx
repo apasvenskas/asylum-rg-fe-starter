@@ -21,6 +21,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
 import { colors } from './styles/data_vis_colors';
 import { Auth0Provider } from '@auth0/auth0-react';
+import Profile from './components/pages/DataVisualizations/UserTable';
 
 const { primary_accent_color } = colors;
 
@@ -31,9 +32,10 @@ ReactDOM.render(
       <React.StrictMode>
         <Auth0Provider
           domain="dev-ea8nheizp7ogrvn3.us.auth0.com"
-          clientId="m3dTrsOleAigzYafV1wbIXQLdSzcLDw9"
+          clientId="xjWccWKvTNMf9w80i3RYeTUcooCdaXAg"
           redirectUri={window.location.origin}
         >
+          {/* <UserTable /> */}
           <App />
         </Auth0Provider>
       </React.StrictMode>
@@ -59,7 +61,7 @@ export function App() {
       <Switch>
         <Route path="/" exact component={LandingPage} />
         <Route path="/graphs" component={GraphsContainer} />
-        <Route component={NotFoundPage} />
+        <Route path="/profile" component={Profile} />
       </Switch>
       <Footer
         style={{
