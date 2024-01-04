@@ -1,13 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
+// src/components/pages/DataVisualizations/UserTable.jsx
+import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Link, Route, useParams } from 'react-router-dom';
 
-function Profile({ id }) {
+function UserTable({ id }) {
   const { getAccessTokenSilently } = useAuth0();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Get an access token with the read:users scope
     const getToken = async () => {
       const token = await getAccessTokenSilently({
         audience: 'dev-ea8nheizp7ogrvn3.us.auth0.com',
@@ -16,7 +15,6 @@ function Profile({ id }) {
       return token;
     };
 
-    // Fetch the user data from the Auth0 Management API
     const fetchUser = async () => {
       const token = await getToken();
       const response = await fetch(
@@ -34,7 +32,6 @@ function Profile({ id }) {
     fetchUser();
   }, [getAccessTokenSilently, id]);
 
-  // Render the user data in a table
   return (
     <>
       {user && (
@@ -61,4 +58,4 @@ function Profile({ id }) {
   );
 }
 
-export default Profile;
+export default UserTable;

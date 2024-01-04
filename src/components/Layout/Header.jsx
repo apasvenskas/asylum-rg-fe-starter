@@ -6,12 +6,11 @@ import { colors } from '../../styles/data_vis_colors';
 import { useAuth0 } from '@auth0/auth0-react';
 import LoginButton from '../pages/DataVisualizations/LoginButton';
 import LogoutButton from '../pages/DataVisualizations/LogoutButton';
-import Profile from '../pages/DataVisualizations/UserTable';
 
 const { primary_accent_color } = colors;
 
 function HeaderContent() {
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
   return (
     <div
       style={{
@@ -73,7 +72,15 @@ function HeaderContent() {
           {isAuthenticated && (
             <LogoutButton style={{ flex: 1, margin: '10px' }} />
           )}
-          {isAuthenticated && <Profile style={{ flex: 1, margin: '10px' }} />}
+          {user && (
+            <Link
+              to={`/profile/${user.id}`}
+              style={{ flex: 1, margin: '10px' }}
+              target="_blank" // open the link in a new tab
+            >
+              Profile
+            </Link>
+          )}
         </>
       </div>
     </div>

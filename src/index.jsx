@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom';
 
 import 'antd/dist/antd.less';
-import { NotFoundPage } from './components/pages/NotFound';
 import { LandingPage } from './components/pages/Landing';
 
 import { FooterContent, SubFooter } from './components/Layout/Footer';
@@ -21,7 +20,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
 import { colors } from './styles/data_vis_colors';
 import { Auth0Provider } from '@auth0/auth0-react';
-import Profile from './components/pages/DataVisualizations/UserTable';
+import Profile from './components/pages/DataVisualizations/Profile';
 
 const { primary_accent_color } = colors;
 
