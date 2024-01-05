@@ -34,7 +34,6 @@ ReactDOM.render(
           clientId="xjWccWKvTNMf9w80i3RYeTUcooCdaXAg"
           redirectUri={window.location.origin}
         >
-          {/* <UserTable /> */}
           <App />
         </Auth0Provider>
       </React.StrictMode>
