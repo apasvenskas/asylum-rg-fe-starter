@@ -2,11 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
-function InfoTable(props) {
-  const { getAccessTokenSilently, user, isLoading } = useAuth0();
+function InfoTable({ id }) {
+  // remove user from here
+  const { getAccessTokenSilently, isLoading } = useAuth0();
   const [userInfo, setUserInfo] = useState(null);
   const [error, setError] = useState(null);
 
+  // remove this line
   // const id = user.sub;
 
   useEffect(() => {
@@ -19,32 +21,33 @@ function InfoTable(props) {
     };
 
     const fetchUser = async () => {
-      if (user) {
-        try {
-          const token = await getToken();
-          const response = await fetch(
-            `http://dev-ea8nheizp7ogrvn3.us.auth0.com/users/${user.sub}`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
-          if (response.ok) {
-            const data = await response.json();
-            setUserInfo(data);
-          } else {
-            throw new Error(`Fetch request failed: ${response.status}`);
+      // remove this condition
+      // if (user) {
+      try {
+        const token = await getToken();
+        const response = await fetch(
+          `http://dev-ea8nheizp7ogrvn3.us.auth0.com/users/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
-        } catch (error) {
-          console.error(error);
-          setError(error.message);
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setUserInfo(data);
+        } else {
+          throw new Error(`Fetch request failed: ${response.status}`);
         }
+      } catch (error) {
+        console.error(error);
+        setError(error.message);
       }
     };
 
+    // remove user from here
     fetchUser();
-  }, [getAccessTokenSilently, user]);
+  }, [getAccessTokenSilently, id]);
 
   if (isLoading) {
     return <div>Loading...</div>;

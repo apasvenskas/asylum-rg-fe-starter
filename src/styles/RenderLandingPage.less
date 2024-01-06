@@ -25,7 +25,7 @@
 
 .loginButton {
     background-color: #404C4A; /* Grey background */
-    color: rgb(226, 240, 247); /* White text */
+    color: rgb(226, 240, 247); 
     border: none; 
     cursor: pointer; /* Add a pointer cursor on mouse-over */
 
@@ -33,9 +33,27 @@
 
   .logoutButton{
     background-color: #404C4A; /* Grey background */
-    color: rgb(226, 240, 247); /* White text */
+    color: rgb(226, 240, 247); 
     border: none; 
     cursor: pointer; /* Add a pointer cursor on mouse-over */
+  }
+
+  .profileLink {
+    background-color: #404C4A; /* Grey background */
+    color: rgb(226, 240, 247); 
+    border: none; 
+    cursor: pointer; /* Add a pointer cursor on mouse-over */
+    text-decoration: none; /* Remove underline */
+    padding: 14px 25px; /* Add some padding */
+    display: inline-block; /* Make the link a block element */
+  }
+
+  .navBar > li {
+    flex-shrink: 1; /* allow the items to shrink */
+  }
+  
+  .navBar > li.search {
+    flex-grow: 1; /* allow the search item to grow */
   }
 
 

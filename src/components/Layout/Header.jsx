@@ -11,6 +11,8 @@ const { primary_accent_color } = colors;
 
 function HeaderContent() {
   const { isAuthenticated, user } = useAuth0();
+  console.log('user', user);
+
   return (
     <div
       style={{
@@ -37,7 +39,7 @@ function HeaderContent() {
         className="navBar"
         style={{
           display: 'flex',
-          flex: 0.3,
+          flex: 0.5,
           alignItems: 'center',
           justifyContent: 'flex-end',
         }}
@@ -57,7 +59,7 @@ function HeaderContent() {
           to="/graphs"
           style={{
             color: '#E2F0F7',
-            flex: 1,
+            flex: 0.5,
             textAlign: 'center',
             margin: '10px',
           }}
@@ -74,8 +76,9 @@ function HeaderContent() {
           )}
           {user && (
             <Link
-              to={`/profile/${user.id}`}
-              style={{ flex: 1, margin: '10px' }}
+              className="profileLink"
+              to={`/profile/${user?.sub || 'default'}`}
+              style={{ flex: 0.6, margin: '10px' }}
               target="_blank" // open the link in a new tab
             >
               Profile

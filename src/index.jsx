@@ -59,7 +59,7 @@ export function App() {
       <Switch>
         <Route path="/" exact component={LandingPage} />
         <Route path="/graphs" component={GraphsContainer} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile/:id" component={Profile} />
       </Switch>
       <Footer
         style={{
