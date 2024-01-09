@@ -15,7 +15,7 @@ import { HeaderContent } from './components/Layout/Header';
 
 import { Layout } from 'antd';
 import GraphsContainer from './components/pages/DataVisualizations/GraphsContainer';
-import { Provider } from 'react-redux';
+import { Provider, connect as connectRedux } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducers';
 import { colors } from './styles/data_vis_colors';
@@ -23,6 +23,15 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import Profile from './components/pages/DataVisualizations/Profile';
 
 const { primary_accent_color } = colors;
+const cors = require('cors');
+
+// const app = connectRedux();
+
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000",
+//   })
+// );
 
 const store = configureStore({ reducer: reducer });
 ReactDOM.render(

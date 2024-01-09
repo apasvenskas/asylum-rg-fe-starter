@@ -1,5 +1,6 @@
 {
   "name": "labs-spa-starter",
+  "proxy": "https://jsonplaceholder.typicode.com",
   "browserslist": {
     "development": [
       "last 1 chrome version",
@@ -22,6 +23,8 @@
     "@reduxjs/toolkit": "^1.8.2",
     "antd": "^4.18.4",
     "axios": "^0.21.1",
+    "connect": "^3.7.0",
+    "cors": "^2.8.5",
     "craco-less": "^1.20.0",
     "dotenv": "^16.3.1",
     "eslint-plugin-prettier": "^4.0.0",

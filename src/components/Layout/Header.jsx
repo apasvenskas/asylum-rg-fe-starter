@@ -44,41 +44,20 @@ function HeaderContent() {
           justifyContent: 'flex-end',
         }}
       >
-        <Link
-          to="/"
-          style={{
-            color: '#E2F0F7',
-            flex: 0,
-            textAlign: 'center',
-            margin: '10px',
-          }}
-        >
+        <Link className="home" to="/" style={{}}>
           Home
         </Link>
-        <Link
-          to="/graphs"
-          style={{
-            color: '#E2F0F7',
-            flex: 0.5,
-            textAlign: 'center',
-            margin: '10px',
-          }}
-        >
+        <Link className="graphs" to="/graphs">
           Graphs
         </Link>
         {/* show is authenticated here */}
         <>
-          {!isAuthenticated && (
-            <LoginButton style={{ flex: 1, margin: '10px' }} />
-          )}
-          {isAuthenticated && (
-            <LogoutButton style={{ flex: 1, margin: '10px' }} />
-          )}
+          {!isAuthenticated && <LoginButton />}
+          {isAuthenticated && <LogoutButton />}
           {user && (
             <Link
               className="profileLink"
               to={`/profile/${user?.sub || 'default'}`}
-              style={{ flex: 0.6, margin: '10px' }}
               target="_blank" // open the link in a new tab
             >
               Profile
